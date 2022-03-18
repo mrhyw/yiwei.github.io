@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=007def735784dd9fa7de633872655549"></script>
+<script src="https://webapi.amap.com/loader.js"></script>
+    <title>Document</title>
+</head>
+<body>
+   
+    <div id="container" >
+    </div>
+    <h1>huangytuiwei</h1>
+</body>
+<style>
+           *{
+                 margin: 0;
+                 padding: 0;
+            }
+            html,body{
+                width: 100%;
+                height: 100%;
+         }
+           div{
+                width:100%;
+                height: 100%;
+              
+            }
+            .amap-icon img{
+            width: 60px;
+            height:60px;
+        }
+ </style>
+<script>
+    var map = new AMap.Map('container',{mapStyle:'amap://styles/dark'});
+        map.setZoom(15);              //setzoom 指定缩放级别
+        map.setCenter([114.440271,23.039848]);  //指定地图中心
+       // 以 icon URL 的形式创建一个途经点
+    var viaMarker = new AMap.Marker({
+        position: new AMap.LngLat(114.440271,23.039848),
+        // 将一张图片的地址设置为 icon
+        icon: 'https://sams-home-online-1302115363.file.myqcloud.com/static/miniLogo.84bf0838.png',
+        // 设置了 icon 以后，设置 icon 的偏移量，以 icon 的 [center bottom] 为原点
+        offset: new AMap.Pixel(-40, -30)
+    });
+    // 创建一个 icon
+    var endIcon = new AMap.Icon({
+        size: new AMap.Size(50, 40),
+        image: "./images/logo2.png",
+        imageSize: new AMap.Size(50, 40),
+        imageOffset: new AMap.Pixel(0, 0)
+    });
+
+    // 将 icon 传入 marker
+    var endMarker = new AMap.Marker({
+        position: new AMap.LngLat(114.439539,23.052253),
+        icon: endIcon,
+        offset: new AMap.Pixel(0, 0)
+    });
+  
+    // 将 icon 传入 marker
+    var addresMarker1 = new AMap.Marker({
+        position: new AMap.LngLat(114.435628,23.056523),
+        icon: endIcon,
+        offset: new AMap.Pixel(0, 0)
+    });
+   
+    // 将 icon 传入 marker
+    var addresMarker2 = new AMap.Marker({
+        position: new AMap.LngLat(114.435607,23.068132),
+        icon: endIcon,
+        offset: new AMap.Pixel(0, 0)
+    });
+
+    map.add([viaMarker,endMarker,addresMarker1,addresMarker2]);
+
+</script>
+</html>
